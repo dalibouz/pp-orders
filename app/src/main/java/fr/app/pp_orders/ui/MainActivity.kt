@@ -13,7 +13,7 @@ import fr.app.pp_orders.ui.category.CategoryListFragment
 import fr.app.pp_orders.ui.plate.OnPlateDetailsInteractionListener
 import fr.app.pp_orders.ui.plate.PlateDetailsDialog
 import fr.app.pp_orders.ui.plate.PlateItemListFragment
-import fr.app.pp_orders.ui.shoppingList.ShoppingListAdapterListener
+import fr.app.pp_orders.ui.shoppingList.ShoppingListBroadcast
 import fr.app.pp_orders.ui.shoppingList.ShoppingListFragment
 import fr.app.pp_orders.ui.shoppingList.ShoppingListInteractionListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
 
         fun initData(data: MutableList<CategoryItem>) {
             ITEMS = data
-            ITEMS.forEach{
+            ITEMS.forEach {
                 ITEM_MAP.put(it.name, it)
             }
         }
@@ -75,10 +75,7 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onAskToRemovePlateFromShoppingList(
-        plate: PlateItem,
-        listener: ShoppingListAdapterListener
-    ) {
+    override fun onAskToRemovePlateFromShoppingList(plate: PlateItem) {
         AlertDialog.Builder(this)
             .setTitle(plate.name)
             .setPositiveButton("Supprimer") { _, _ ->
@@ -87,7 +84,7 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
                     if (shoppingList.size == 0) {
                         this.onBackPressed()
                     } else {
-                        listener.invalidateList()
+                        ShoppingListBroadcast.broadcastPlateRemoved(plate, this)
                     }
                 }
             }

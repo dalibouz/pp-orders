@@ -15,18 +15,14 @@ import kotlinx.android.synthetic.main.fragment_plate_item.view.*
 class ShoppingListRecyclerViewAdapter(
     private val mValues: List<PlateItem>,
     private val mListener: ShoppingListInteractionListener?
-) : RecyclerView.Adapter<ShoppingListRecyclerViewAdapter.ViewHolder>(), ShoppingListAdapterListener {
-
-    override fun invalidateList() {
-        notifyDataSetChanged()
-    }
+) : RecyclerView.Adapter<ShoppingListRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
 
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as PlateItem
-            mListener?.onAskToRemovePlateFromShoppingList(item, this)
+            mListener?.onAskToRemovePlateFromShoppingList(item)
         }
     }
 
@@ -51,15 +47,10 @@ class ShoppingListRecyclerViewAdapter(
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         val mName: TextView = mView.name
-        //        val mDescription: TextView = mView.description
         val mPrice: TextView = mView.price
 
         override fun toString(): String {
             return super.toString() + " '" + mName.text + "'"
         }
     }
-}
-
-interface ShoppingListAdapterListener {
-    fun invalidateList()
 }
