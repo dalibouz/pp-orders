@@ -21,6 +21,4 @@ Cette application se complete avec l'application web [pp-orders](https://pp-orde
 
 ## Développé par
 
-Mohamed Ali Bouzrati
-*   [Site perso](http://mohamed-ali-bouzrati.me/)
-*   [Linkedin](https://fr.linkedin.com/in/mohamed-ali-bouzrati)
+[Mohamed Ali Bouzrati](https://fr.linkedin.com/in/mohamed-ali-bouzrati)
