@@ -17,6 +17,8 @@ import fr.app.pp_orders.R
 import fr.app.pp_orders.model.PlateItem
 import fr.app.pp_orders.ui.MainActivity
 import fr.app.pp_orders.ui.shoppingList.ShoppingListBroadcast.Companion.ACTION_PLATE_REMOVED
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class ShoppingListFragment : Fragment() {
     private var listener: ShoppingListInteractionListener? = null
@@ -58,7 +60,7 @@ class ShoppingListFragment : Fragment() {
         MainActivity.shoppingList.forEach {
             totalAmountValue += it.price
         }
-        totalAmount.text = "$totalAmountValue"
+        totalAmount.text = "${BigDecimal(totalAmountValue).setScale(2, RoundingMode.HALF_EVEN)}"
     }
 
     override fun onAttach(context: Context) {
