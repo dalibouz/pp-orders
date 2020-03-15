@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
 
     companion object {
         var mFab: FloatingActionButton? = null
+        var ITEMS: MutableList<CategoryItem> = ArrayList()
+        val ITEM_MAP: MutableMap<String, CategoryItem> = HashMap()
 
         val shoppingList: MutableList<PlateItem> = ArrayList()
     }

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.app.pp_orders.R
-import fr.app.pp_orders.dummy.CategoryDummyContent
+import fr.app.pp_orders.ui.MainActivity
 import fr.app.pp_orders.model.CategoryItem
 
 /**
@@ -30,7 +30,7 @@ class CategoryListFragment : Fragment() {
             with(view) {
                 layoutManager = LinearLayoutManager(context)
                 adapter = CategoryRecyclerViewAdapter(
-                    CategoryDummyContent.ITEMS,
+                    MainActivity.ITEMS,
                     listener
                 )
             }

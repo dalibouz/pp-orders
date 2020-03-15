@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.app.pp_orders.R
-import fr.app.pp_orders.dummy.CategoryDummyContent
+import fr.app.pp_orders.ui.MainActivity
 import fr.app.pp_orders.model.CategoryItem
 import fr.app.pp_orders.model.PlateItem
 
@@ -29,7 +29,7 @@ class PlateItemListFragment : Fragment() {
             if (it.containsKey(ARG_CATEGORY_ID)) {
                 // Load the dummy content specified by the fragment arguments.
                 // In a real-world scenario, use a Loader to load content from a content provider.
-                category = CategoryDummyContent.ITEM_MAP[it.getString(ARG_CATEGORY_ID)]
+                category = MainActivity.ITEM_MAP[it.getString(ARG_CATEGORY_ID)]
                 // TODO : change me
 //                activity?.toolbar_layout?.title = category?.name
             }
