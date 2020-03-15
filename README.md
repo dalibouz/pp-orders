@@ -15,6 +15,8 @@ Cette application se complete avec l'application web [pp-orders](https://pp-orde
 * [Android Support Library](https://developer.android.com/topic/libraries/support-library/)
 * [Android Material](https://material.io/develop/android/)
 * [Android CardView](https://developer.android.com/reference/androidx/cardview/widget/CardView)
+* [Retrofit](https://github.com/square/retrofit/)
+* [Gson](https://github.com/google/gson/)
 * TODO : définir le reste
 
 ## Développé par

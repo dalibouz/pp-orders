@@ -8,6 +8,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import fr.app.pp_orders.R
 import fr.app.pp_orders.model.CategoryItem
 import fr.app.pp_orders.model.PlateItem
+import fr.app.pp_orders.network.PlateCategoriesApi
 import fr.app.pp_orders.ui.category.CategoryInteractionListener
 import fr.app.pp_orders.ui.category.CategoryListFragment
 import fr.app.pp_orders.ui.plate.OnPlateDetailsInteractionListener
@@ -17,6 +18,13 @@ import fr.app.pp_orders.ui.shoppingList.ShoppingListAdapterListener
 import fr.app.pp_orders.ui.shoppingList.ShoppingListFragment
 import fr.app.pp_orders.ui.shoppingList.ShoppingListInteractionListener
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.MutableList
+import kotlin.collections.MutableMap
 
 class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteractionListener,
     CategoryInteractionListener, OnPlateDetailsInteractionListener,
@@ -52,7 +60,27 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
 
         }
 
+        fetchCategories()
         chargeCategoryFragment()
+    }
+
+    private fun fetchCategories() {
+        val categoriesAPI = PlateCategoriesApi.retrofit.create(PlateCategoriesApi::class.java)
+        val plates = categoriesAPI.categooriesItems
+        plates.enqueue(object : Callback<ArrayList<CategoryItem>> {
+            override fun onResponse(
+                call: Call<ArrayList<CategoryItem>>,
+                response: Response<ArrayList<CategoryItem>>
+            ) {
+                android.util.Log.v("test", " response : ${response.body()}")
+                // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onFailure(call: Call<ArrayList<CategoryItem>>, t: Throwable) {
+                android.util.Log.v("test", " error $t")
+                // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
     }
 
     private fun chargeCategoryFragment() {
@@ -66,7 +94,10 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onAskToRemovePlateFromShoppingList(plate: PlateItem, listener: ShoppingListAdapterListener) {
+    override fun onAskToRemovePlateFromShoppingList(
+        plate: PlateItem,
+        listener: ShoppingListAdapterListener
+    ) {
         AlertDialog.Builder(this)
             .setTitle(plate.name)
             .setPositiveButton("Supprimer") { _, _ ->
@@ -89,7 +120,7 @@ class MainActivity : AppCompatActivity(), PlateItemListFragment.PlateInteraction
     }
 
     override fun onCategorySelected(category: CategoryItem) {
-        val fragment = PlateItemListFragment.newInstance(category.id)
+        val fragment = PlateItemListFragment.newInstance(category.name)
 
         supportFragmentManager
             .beginTransaction()
