@@ -8,7 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import fr.app.pp_orders.R
 import fr.app.pp_orders.model.CategoryItem
-import fr.app.pp_orders.network.PlateCategoriesApi
+import fr.app.pp_orders.network.PpInterfaceApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,7 +34,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun fetchCategories() {
-        val categoriesAPI = PlateCategoriesApi.retrofit.create(PlateCategoriesApi::class.java)
+        val categoriesAPI = PpInterfaceApi.retrofit.create(PpInterfaceApi::class.java)
         val plates = categoriesAPI.categooriesItems
         plates.enqueue(object : Callback<ArrayList<CategoryItem>> {
             override fun onResponse(

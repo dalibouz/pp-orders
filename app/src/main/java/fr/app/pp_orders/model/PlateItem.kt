@@ -11,5 +11,4 @@ data class PlateItem(
     val price: Double,
     val lastUpdate: String,
     val plateCategoryId: String
-) :
-    Serializable, Parcelable
+) : Serializable, Parcelable
