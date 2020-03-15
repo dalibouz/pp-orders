@@ -7,8 +7,8 @@ Cette application se complete avec l'application web [pp-orders](https://pp-orde
 
 ## Ecrans
 
-<img src="./screen/home.png" width="214" height="385">&ensp;<img src="./screen/Accompagnements.png" width="214" height="385">
-<img src="./screen/listeDesCommandes.png" width="214" height="385">
+<img src="./screen/V2SplashScreen.png" width="214" height="385">&ensp;<img src="./screen/V2Home.png" width="214" height="385">
+<img src="./screen/V2Sandwichs.png" width="214" height="385">&ensp;<img src="./screen/V2ShoppingList.png" width="214" height="385">
 
 ## Bibliothèques utilisés
 
