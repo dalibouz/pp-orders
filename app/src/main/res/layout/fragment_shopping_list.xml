@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0f5"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,7 +15,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_weight="7"
-        android:background="#ffffff"
+        android:background="@color/colorPrimary"
         android:padding="5dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".ui.shoppingList.ShoppingListFragment"
@@ -34,6 +34,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal">
 
             <TextView
@@ -42,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
                 android:gravity="end"
+                android:textColor="@color/white"
                 android:text="Total :" />
 
             <TextView
@@ -49,6 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:textColor="@color/white"
                 android:text="2.6€" />
         </LinearLayout>
 
@@ -58,7 +61,7 @@
             android:layout_height="wrap_content"
             android:text="Finaliser la commande"
             android:textColor="#ffffff"
-            app:backgroundTint="@color/colorPrimary" />
+            app:backgroundTint="@color/colorAccent" />
     </LinearLayout>
 
 
